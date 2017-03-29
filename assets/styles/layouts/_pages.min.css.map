@@ -1,0 +1,9 @@
+{
+	"version": 3,
+	"file": "_pages.min.css",
+	"sources": [
+		"_pages.scss"
+	],
+	"names": [],
+	"mappings": "AAAA,AAAA,QAAQ,AAAC,CACP,OAAO,CAAC,MAAM,CACf"
+}

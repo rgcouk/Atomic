@@ -1,0 +1,29 @@
+.loop {
+  width:100%;
+
+  article{
+    &.product {
+      border:1px solid #ccc;
+
+
+    }
+  }
+}
+
+
+// Single-Product
+
+.single-product-details {
+
+  .wc-tabs-wrapper {
+    ul {
+      margin:0;
+      padding:0;
+      list-style: none;
+
+      li {
+        display:inline-block;
+      }
+    }
+  }
+}

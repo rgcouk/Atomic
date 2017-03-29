@@ -1,0 +1,26 @@
+.topbar {
+  background:$dark;
+  color:#fff;
+
+  li {
+    margin-left:10px;
+  }
+
+    a {
+      color:#fff;
+
+      &:hover {
+        color:#f3f;
+      }
+    }
+}
+
+.bg-faded {
+  background: $secondary;
+
+  .navbar-brand {
+    img {
+      max-width:120px;
+    }
+  }
+}
