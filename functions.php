@@ -122,3 +122,36 @@ switch ( $args['type'] ) {
 
 remove_action( 'woocommerce_before_main_content', 'woocommerce_output_content_wrapper', 10);
 remove_action( 'woocommerce_after_main_content', 'woocommerce_output_content_wrapper_end', 10);
+
+
+/**
+ * Add Cart icon and count to header if WC is active
+ */
+add_action('my_action', 'cart_count');
+
+function cart_count() {
+      ?>
+    <a class="cart-customlocation" href="<?php echo wc_get_cart_url(); ?>" title="<?php _e( 'View your shopping cart' ); ?>"><?php echo sprintf ( _n( '%d item', '%d items', WC()->cart->get_cart_contents_count() ), WC()->cart->get_cart_contents_count() ); ?> - <?php echo WC()->cart->get_cart_total(); ?></a>
+<?php
+    }
+
+/**
+ * Ensure cart contents update when products are added to the cart via AJAX
+ */
+function my_header_add_to_cart_fragment( $fragments ) {
+
+    ob_start();
+    $count = WC()->cart->cart_contents_count;
+    ?><a class="cart-contents" href="<?php echo WC()->cart->get_cart_url(); ?>" title="<?php _e( 'View your shopping cart' ); ?>"><?php
+    if ( $count > 0 ) {
+        ?>
+        <span class="cart-contents-count"><?php echo esc_html( $count ); ?></span>
+        <?php
+    }
+        ?></a><?php
+
+    $fragments['a.cart-contents'] = ob_get_clean();
+
+    return $fragments;
+}
+add_filter( 'woocommerce_add_to_cart_fragments', 'my_header_add_to_cart_fragment' );

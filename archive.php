@@ -15,9 +15,7 @@
  */
 
 $templates = array( 'pages/archive.twig', 'pages/index.twig' );
-
 $context = Timber::get_context();
-
 $context['title'] = 'Archive';
 
 if ( is_day() ) {
