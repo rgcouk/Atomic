@@ -10,24 +10,31 @@
 <nav class="navbar navbar-toggleable-md navbar-light bg-faded">
   <div class="container">
 
-  <button class="navbar-toggler navbar-toggler-right" type="button" data-toggle="collapse" data-target="#navbarSupportedContent" aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="Toggle navigation">
-    <span class="navbar-toggler-icon"></span>
-  </button>
 {% block header %}
   <a class="navbar-brand" href="{{ site.url }}">
     <img src="http://keepwarmsupplies.co.uk/wp-content/uploads/2017/03/keepwarm_white.png" class="img-responsive" alt="">
   </a>
 
+  <ul id="mobile-nav-icon" class="hidden-md-up navbar-nav mx-auto">
+    <li class="menu-item"><i class="icon ion-android-cart"></i></li>
+    <li class="menu-item"><i class="icon ion-person"></i></li>
+    <li class="menu-item">
+      <a class="navbar-toggler nav-item" data-toggle="collapse" data-target="#navbarSupportedContent" aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="Toggle navigation">
+        <span class="navbar-toggler-icon"></span>
+      </a></li>
+
+  </ul>
+
   <div class="collapse navbar-collapse" id="navbarSupportedContent">
     <ul class="navbar-nav mx-auto">
       {% include 'blocks/nav-primary.twig' with {menu: menu.get_items} %}
     </ul>
-  </div>
 
-  <div class="col">
+  <div class="col-sm-3 cart_box">
     {#{minicart}#}
     {% do action('my_action') %}
   </div>
+</div>
 </div>
 </nav>
 {% endblock %}

@@ -131,27 +131,31 @@ add_action('my_action', 'cart_count');
 
 function cart_count() {
       ?>
-    <a class="cart-customlocation" href="<?php echo wc_get_cart_url(); ?>" title="<?php _e( 'View your shopping cart' ); ?>"><?php echo sprintf ( _n( '%d item', '%d items', WC()->cart->get_cart_contents_count() ), WC()->cart->get_cart_contents_count() ); ?> - <?php echo WC()->cart->get_cart_total(); ?></a>
+    <a class="cart-customlocation hidden-xs-down" data-toggle="collapse" href="#collapseCart" aria-expanded="false" aria-controls="collapseCart" title="<?php _e( 'View your shopping cart' ); ?>"><?php echo sprintf ( _n( '%d item', '%d items', WC()->cart->get_cart_contents_count() ), WC()->cart->get_cart_contents_count() ); ?></a>
+    <div class="collapse" id="collapseCart">
+      <div class="card card-block">
+        <?php echo WC()->cart->get_cart_total(); ?>
+      </div>
+</div>
 <?php
     }
 
-/**
- * Ensure cart contents update when products are added to the cart via AJAX
- */
-function my_header_add_to_cart_fragment( $fragments ) {
 
-    ob_start();
-    $count = WC()->cart->cart_contents_count;
-    ?><a class="cart-contents" href="<?php echo WC()->cart->get_cart_url(); ?>" title="<?php _e( 'View your shopping cart' ); ?>"><?php
-    if ( $count > 0 ) {
-        ?>
-        <span class="cart-contents-count"><?php echo esc_html( $count ); ?></span>
-        <?php
+    // Ensure cart contents update when products are added to the cart via AJAX (place the following in functions.php).
+    // Used in conjunction with https://gist.github.com/DanielSantoro/1d0dc206e242239624eb71b2636ab148
+    add_filter('add_to_cart_fragments', 'woocommerce_header_add_to_cart_fragment');
+
+    function woocommerce_header_add_to_cart_fragment( $fragments ) {
+    	global $woocommerce;
+
+    	ob_start();
+
+    	?>
+    	<a class="cart-customlocation" href="<?php echo $woocommerce->cart->get_cart_url(); ?>" title="<?php _e('View your shopping cart', 'woothemes'); ?>"><?php echo sprintf(_n('%d item', '%d items', $woocommerce->cart->cart_contents_count, 'woothemes'), $woocommerce->cart->cart_contents_count);?> - <?php echo $woocommerce->cart->get_cart_total(); ?></a>
+    	<?php
+
+    	$fragments['a.cart-customlocation'] = ob_get_clean();
+
+    	return $fragments;
+
     }
-        ?></a><?php
-
-    $fragments['a.cart-contents'] = ob_get_clean();
-
-    return $fragments;
-}
-add_filter( 'woocommerce_add_to_cart_fragments', 'my_header_add_to_cart_fragment' );
