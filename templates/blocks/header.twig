@@ -1,5 +1,6 @@
 <div class="topbar">
   <div class="container">
+    <p>Keeping you warm</p>
     <ul class="nav">
       <li class="nav-item"><a href="#">Sign Up</a></li>
       <li class="nav-item"><a href="#">Login</a></li>
@@ -7,30 +8,31 @@
   </div>
 </div>
 
-<nav class="navbar navbar-toggleable-md navbar-light bg-faded">
+<nav class="navbar navbar-toggleable-sm navbar-light bg-faded">
   <div class="container">
 
 {% block header %}
-  <a class="navbar-brand" href="{{ site.url }}">
+  <a class="navbar-brand hidden-sm-down" href="{{ site.url }}">
     <img src="http://keepwarmsupplies.co.uk/wp-content/uploads/2017/03/keepwarm_white.png" class="img-responsive" alt="">
   </a>
 
-  <ul id="mobile-nav-icon" class="hidden-md-up navbar-nav mx-auto">
-    <li class="menu-item"><i class="icon ion-android-cart"></i></li>
-    <li class="menu-item"><i class="icon ion-person"></i></li>
-    <li class="menu-item">
+  <div id="mobile-nav-icon" class="hidden-md-up d-flex justify-content-end">
+    <div class="p-2"><img src="http://keepwarmsupplies.co.uk/wp-content/uploads/2017/03/keepwarm_white.png" class="img-responsive" alt=""></div>
+    <div class="p-2"><i class="icon ion-android-cart"></i></div>
+    <div class="p-2"><i class="icon ion-person"></i></div>
+    <div class="p-2">
       <a class="navbar-toggler nav-item" data-toggle="collapse" data-target="#navbarSupportedContent" aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="Toggle navigation">
         <span class="navbar-toggler-icon"></span>
-      </a></li>
+      </a>
+    </div>
 
-  </ul>
-
+  </div>
   <div class="collapse navbar-collapse" id="navbarSupportedContent">
-    <ul class="navbar-nav mx-auto">
+    <ul class="navbar-nav col">
       {% include 'blocks/nav-primary.twig' with {menu: menu.get_items} %}
     </ul>
 
-  <div class="col-sm-3 cart_box">
+  <div class="col-sm-3 ml-auto cart_box">
     {#{minicart}#}
     {% do action('my_action') %}
   </div>

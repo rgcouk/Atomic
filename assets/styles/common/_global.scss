@@ -13,14 +13,16 @@ h4 {
   }
 
 #mobile-nav-icon {
-  li {
-    display:inline-block;
-    a {
-      
-      i {
-
-      }
+  width:100%;
+  div {
+    img {
+        max-width:120px;
     }
+
+      i {
+        font-size:2rem;
+      }
+
   }
 
 }

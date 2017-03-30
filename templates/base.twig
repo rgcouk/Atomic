@@ -4,9 +4,10 @@
     <body {{ function('body_class') }}>
         {% include 'blocks/header.twig' %}
         <div class="wrap container" role="document">
+          {% include 'blocks/brags.twig' %}
             <div class="content row">
                   {% block content %}
-                  
+
                   {% endblock %}
             </div>
         </div>
