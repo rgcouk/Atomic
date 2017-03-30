@@ -10,10 +10,19 @@
   }
 }
 
+ .woocommerce-breadcrumb {
+   border-bottom: 1px solid #ececec;
+   color: #afafaf;
+   font-size: .72em;
+   padding: 0 0 10px;
+ }
 
 // Single-Product
 
 .single-product-details {
+
+  border-top: 1px solid #ececec;
+
 
   .wc-tabs-wrapper {
     ul {
