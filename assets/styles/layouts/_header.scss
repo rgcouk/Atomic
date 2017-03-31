@@ -68,6 +68,11 @@
         border-bottom: 5px solid transparent;
         border-right: 5px solid #fff;
       }
+
+      span{
+        padding:0!important;
+        margin:0!important;
+      }
     }
 
     i {
@@ -89,6 +94,7 @@
         &:before {
         border-right-color: #632200;
       }
+
     }
   }
   }

@@ -12,18 +12,20 @@
           </div>
         </div>
 
-        <div class="col-sm-6">
+        <div class="col-sm-8">
           <div class="summary entry-summary">
-              {% do action('woocommerce_single_product_summary') %}
+            <h1>{{ product.get_title }}</h1>
+            <h3 class="price">Price: {{ product.get_price_html }}</h3>
+            <a href='{{ product.add_to_cart_url }}' class="btn single_add_to_cart_button">Buy</a>
+          </div>
+          <div class="product-info">
+            <h3>Product Description</h3>
+            {{post.content}}
+
+            <meta itemprop="url" content="{{ post.link }}" />
           </div>
         </div>
       </div>
-
-        <div class="col-sm">
-          {{post.content}}
-          {{post.get_availability}}
-          <meta itemprop="url" content="{{ post.link }}" />
-        </div>
 
       </div>
 
