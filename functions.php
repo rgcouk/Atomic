@@ -132,7 +132,7 @@ add_action('my_action', 'cart_count');
 function cart_count() {
     ?>
 
-    <a class="cart-customlocation hidden-xs-down" data-toggle="collapse" href="#collapseCart" aria-expanded="false" aria-controls="collapseCart" title="<?php _e( 'View your shopping cart' ); ?>"><i class="icon ion-android-cart"></i> <?php echo sprintf ( _n( '%d item', '%d items', WC()->cart->get_cart_contents_count() ), WC()->cart->get_cart_contents_count() ); ?></a>
+    <a class="cart-customlocation hidden-xs-down" data-toggle="collapse" href="#collapseCart" aria-expanded="false" aria-controls="collapseCart" title="<?php _e( 'View your shopping cart' ); ?>"><i class="icon ion-android-cart"></i> <span><?php echo sprintf ( _n( '%d item', '%d items', WC()->cart->get_cart_contents_count() ), WC()->cart->get_cart_contents_count() ); ?></span></a>
     <div class="collapse" id="collapseCart">
       <div class="card card-block">
         <?php echo WC()->cart->get_cart_total(); ?>

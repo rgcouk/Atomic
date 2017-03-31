@@ -12,12 +12,16 @@
           </div>
         </div>
 
-        <div class="col-sm-4">
+        <div class="col-sm-6">
           <div class="summary entry-summary">
               {% do action('woocommerce_single_product_summary') %}
           </div>
         </div>
-        <div class="col-sm-4">
+      </div>
+
+        <div class="col-sm">
+          {{post.content}}
+          {{post.get_availability}}
           <meta itemprop="url" content="{{ post.link }}" />
         </div>
 
