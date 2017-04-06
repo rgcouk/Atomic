@@ -1,0 +1,15 @@
+{% extends "templates/base.twig" %}
+
+{% block content %}
+
+    {% for post in posts %}
+
+        {% include 'blocks/page-header.twig' %}
+
+        <h1>Home</h1>
+
+        {{ post.content }}
+
+    {% endfor %}
+
+{% endblock %}

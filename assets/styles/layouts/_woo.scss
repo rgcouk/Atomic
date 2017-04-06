@@ -76,6 +76,12 @@
     }
   }
 
+  .product-info {
+    padding: 10px 0;
+    margin-top: 20px;
+    border-top: 2px solid #ececec;
+  }
+
   .wc-tabs-wrapper {
     ul {
       margin:0;
@@ -87,4 +93,27 @@
       }
     }
   }
+}
+
+
+.woocommerce-message {
+  border-top-color: #8fae1b;
+  border-radius: 2px;
+  padding: 15px 50px!important;
+  background: #8fae1b;
+  color: #fff;
+  position: relative;
+
+    &:before {
+      color:#fff;
+    }
+
+    a.button.wc-forward {
+      background: #fff;
+      color: #8fae1b;
+      font-size: 15px;
+      position: absolute;
+      right: 10px;
+      top: 10px;
+    }
 }

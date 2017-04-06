@@ -72,6 +72,7 @@
       span{
         padding:0!important;
         margin:0!important;
+        vertical-align: bottom;
       }
     }
 
@@ -111,6 +112,15 @@
       border:none;
       border-radius:0px;
       color:#fff;
+
+      .btn-cart {
+          background: white;
+          padding: 5px;
+          color: #dc4f05;
+          border-radius: 2px;
+          font-size: 13px;
+          font-weight: bold;
+      }
     }
   }
 }
