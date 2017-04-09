@@ -3,7 +3,11 @@
     {% include 'blocks/head.twig' %}
     <body {{ function('body_class') }}>
         {% include 'blocks/header.twig' %}
+        {% if fn('is_front_page') %}
+          {% include 'blocks/carousel.twig' %}
+        {% endif %}
         <div class="wrap container" role="document">
+
           {% include 'blocks/brags.twig' %}
             <div class="content">
                   {% block content %}

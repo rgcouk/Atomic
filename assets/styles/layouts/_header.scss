@@ -1,9 +1,14 @@
 .topbar {
   background:$dark;
   color:#fff;
+  padding:5px 0;
 
   li {
     margin-left:10px;
+  }
+
+  .nav {
+    float:right;
   }
 
     a {

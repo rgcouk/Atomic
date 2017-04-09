@@ -15,7 +15,17 @@
         <div class="col-sm-8">
           <div class="summary entry-summary">
             <h1>{{ product.get_title }}</h1>
+              {{function('woocommerce_template_single_rating')}}
+
+              {% do action('ratings') %}
+
+              {{ product.ratings }}
+              {{ post.ratings }}
+
             <h3 class="price">Price: {{ product.get_price_html }}</h3>
+            <div class="small-desc">
+              {{post.post_excerpt}}
+            </div>
             <a href='{{ product.add_to_cart_url }}' class="btn single_add_to_cart_button">Buy</a>
           </div>
           <div class="product-info">

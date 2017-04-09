@@ -166,5 +166,11 @@ function cart_count() {
     	$fragments['a.cart-customlocation'] = ob_get_clean();
 
     	return $fragments;
-
     }
+
+    add_filter( 'ratings', 'woo_ratings');
+    function woo_ratings() {
+      global $woocommerce;
+      $rating = woocommerce_template_single_rating();
+      return $rating;
+    };

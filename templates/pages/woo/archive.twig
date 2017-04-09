@@ -9,13 +9,11 @@
     </div>
 
     <div class="loop col-12">
-      <div class="row">
         {% for post in products %}
 
             {% include ["blocks/tease-product.twig"] %}
 
         {% endfor %}
-      </div>
     </div>
 
     {% do action('woocommerce_after_shop_loop') %}
